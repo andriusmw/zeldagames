@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import zeldaGames from "./data/zelda.json"
 import {GameCard} from "./components/GameCard/"
+import {List} from "./components/List"
 
 function App() {
   console.log(zeldaGames)
@@ -11,13 +12,15 @@ function App() {
         <h1>Zelda timeline </h1>
      </header>
      <main>
-       <ul>
-       {zeldaGames.map((game, index) => {
-         return (
-           <li key={index} ><GameCard game={game} /></li>
-         )
-       })}
-       </ul>
+       <List data={zeldaGames}
+            render={(game, index) => {
+              return(
+                <li key={index}>
+                  <GameCard game={game} />
+                </li>
+              );
+            } }
+       />
      </main>
      <footer>
         <p>Hack a Boss 2022@</p>
@@ -25,10 +28,7 @@ function App() {
     </div>
   );
 }
-//en el main estamos haciendo un .map del array zeldaGames y 
-//llamamos al componente GameCard en el return pasándole cada elemento
-//del array zeldaGames. Es como si estuviera recorriendo el array con
-//un bucle y diciéndole que en cada iteración escribira el componente
-//gamecard con los elementos de esa iteración.
+//llamamos al componente list que hace los map.
+//le pasamos el array en data y en render la estructura
 
 export default App;
