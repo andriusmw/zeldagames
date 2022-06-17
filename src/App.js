@@ -11,9 +11,13 @@ function App() {
         <h1>Zelda timeline </h1>
      </header>
      <main>
-       {zeldaGames.map((game) => {
-         return <GameCard game={game} />
+       <ul>
+       {zeldaGames.map((game, index) => {
+         return (
+           <li key={index} ><GameCard game={game} /></li>
+         )
        })}
+       </ul>
      </main>
      <footer>
         <p>Hack a Boss 2022@</p>
