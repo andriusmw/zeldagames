@@ -1,25 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import zeldaGames from "./data/zelda.json"
+import {GameCard} from "./components/GameCard/"
 
 function App() {
+  console.log(zeldaGames)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <header>
+        <h1>Zelda timeline </h1>
+     </header>
+     <main>
+       {zeldaGames.map((game) => {
+         return <GameCard game={game} />
+       })}
+     </main>
+     <footer>
+        <p>Hack a Boss 2022@</p>
+     </footer>
     </div>
   );
 }
+//en el main estamos haciendo un .map del array zeldaGames y 
+//llamamos al componente GameCard en el return pasándole cada elemento
+//del array zeldaGames. Es como si estuviera recorriendo el array con
+//un bucle y diciéndole que en cada iteración escribira el componente
+//gamecard con los elementos de esa iteración.
 
 export default App;
