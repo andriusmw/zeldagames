@@ -6,4 +6,4 @@ export const GameCard = ({game}) => {
           <p>{game.description} </p>
         </article>
     )
-}
+};
